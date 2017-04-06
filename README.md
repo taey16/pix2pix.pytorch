@@ -17,7 +17,7 @@
 ![input](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/real_input.png)
 - Corresponding real target samples
 ![target](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/real_target.png)
-- Corresponding generated samples
+- **Corresponding generated samples**
 ![generated](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/generated_epoch_00000212_iter00085000.png)
 
 # Note
