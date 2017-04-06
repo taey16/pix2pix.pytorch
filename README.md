@@ -14,7 +14,11 @@
 
 # Results
 - Randomly selected input samples
-![input](
+![input](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/real_input.png)
+- Corresponding real target samples
+![target](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/real_target.png)
+- Corresponding generated samples
+![generated](https://github.com/taey16/pix2pix.pytorch/blob/master/imgs/generated_epoch_00000212_iter00085000.png)
 
 # Note
 - We modified [pytorch.vision.folder](https://github.com/pytorch/vision/blob/master/torchvision/datasets/folder.py) and [transform.py](https://github.com/pytorch/vision/blob/master/torchvision/transforms.py) as to follow the format of train images in the datasets
@@ -24,6 +28,7 @@
 
 # Reference
 - [pix2pix.torch](https://github.com/phillipi/pix2pix)
+- [pix2pix-pytorch](https://github.com/mrzhu-cool/pix2pix-pytorch) (Another pytorch implemention of the pix2pix)
 - [dcgan.pytorch](https://github.com/pytorch/examples/tree/master/dcgan)
 - **FANTASTIC pytorch** [pytorch doc](http://pytorch.org/docs/notes/autograd.html)
 - [genhacks from soumith](https://github.com/soumith/ganhacks)
