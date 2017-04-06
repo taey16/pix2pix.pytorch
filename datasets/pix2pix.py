@@ -45,9 +45,11 @@ class pix2pix(data.Dataset):
     w, h = img.size
     #w, h = 512, 256
     #img = img.resize((w, h), Image.BILINEAR)
+    # NOTE: split a sample into imgA and imgB
     imgA = img.crop((0, 0, w/2, h))
     imgB = img.crop((w/2, 0, w, h))
     if self.transform is not None:
+      # NOTE preprocessing for each pair of images
       imgA, imgB = self.transform(imgA, imgB)
     return imgA, imgB
 
