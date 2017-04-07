@@ -216,7 +216,6 @@ for epoch in range(opt.niter):
                         (i, errD.data[0], errG.data[0], L_img.data[0], D_x, D_G_z1, D_G_z2))
       trainLogger.flush()
     if ganIterations % opt.evalIter == 0:
-      # NOTE: instance normalization
       val_batch_output = torch.FloatTensor(val_input.size()).fill_(0)
       for idx in range(val_input.size(0)):
         single_img = val_input[idx,:,:,:].unsqueeze(0)
