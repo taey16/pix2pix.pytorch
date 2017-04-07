@@ -1,6 +1,6 @@
 # [Image-to-Image Translation with Conditional Adversarial Networks](https://arxiv.org/abs/1611.07004)
 # Install
-- install **fantastic** [pytorch](https://github.com/pytorch/pytorch)
+- install **fantastic** [pytorch](https://github.com/pytorch/pytorch) and [pytorch.vision](https://github.com/pytorch/vision)
 
 # Datasets
 - [Download images from author's implementation](https://github.com/phillipi/pix2pix)
