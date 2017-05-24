@@ -46,7 +46,7 @@ parser.add_argument('--beta1', type=float, default=0.5, help='beta1 for adam. de
 parser.add_argument('--rmsprop', action='store_true', help='Whether to use adam (default is rmsprop)')
 parser.add_argument('--netG', default='', help="path to netG (to continue training)")
 parser.add_argument('--netD', default='', help="path to netD (to continue training)")
-parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
+parser.add_argument('--workers', type=int, help='number of data loading workers', default=2)
 parser.add_argument('--exp', default='sample', help='folder to output images and model checkpoints')
 parser.add_argument('--display', type=int, default=5, help='interval for displaying train-logs')
 parser.add_argument('--evalIter', type=int, default=500, help='interval for evauating(generating) images from valDataroot')
