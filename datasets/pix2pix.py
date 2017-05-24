@@ -3,6 +3,7 @@ import torch.utils.data as data
 from PIL import Image
 import os
 import os.path
+import numpy as np
 
 IMG_EXTENSIONS = [
   '.jpg', '.JPG', '.jpeg', '.JPEG',
@@ -28,7 +29,7 @@ def default_loader(path):
   return Image.open(path).convert('RGB')
 
 class pix2pix(data.Dataset):
-  def __init__(self, root, transform=None, loader=default_loader):
+  def __init__(self, root, transform=None, loader=default_loader, seed=None):
     imgs = make_dataset(root)
     if len(imgs) == 0:
       raise(RuntimeError("Found 0 images in subfolders of: " + root + "\n"
@@ -37,6 +38,9 @@ class pix2pix(data.Dataset):
     self.imgs = imgs
     self.transform = transform
     self.loader = loader
+
+    if seed is not None:
+      np.random.seed(seed)
 
   def __getitem__(self, index):
     path = self.imgs[index]

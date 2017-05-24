@@ -48,14 +48,15 @@ parser.add_argument('--netG', default='', help="path to netG (to continue traini
 parser.add_argument('--netD', default='', help="path to netD (to continue training)")
 parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
 parser.add_argument('--exp', default='sample', help='folder to output images and model checkpoints')
-parser.add_argument('--display', type=int, default=1, help='interval for displaying train-logs')
-parser.add_argument('--evalIter', type=int, default=100, help='interval for evauating(generating) images from valDataroot')
+parser.add_argument('--display', type=int, default=5, help='interval for displaying train-logs')
+parser.add_argument('--evalIter', type=int, default=500, help='interval for evauating(generating) images from valDataroot')
 
 opt = parser.parse_args()
 print(opt)
 
 create_exp_dir(opt.exp)
-opt.manualSeed = random.randint(1, 10000)
+#opt.manualSeed = random.randint(1, 10000)
+opt.manualSeed = 101
 random.seed(opt.manualSeed)
 torch.manual_seed(opt.manualSeed)
 print("Random Seed: ", opt.manualSeed)
@@ -68,7 +69,9 @@ dataloader = getLoader(opt.dataset,
                        opt.batchSize, 
                        opt.workers,
                        mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5), 
-                       split='train')
+                       split='train', 
+                       shuffle=True,
+                       seed=opt.manualSeed)
 valDataloader = getLoader(opt.dataset, 
                           opt.valDataroot, 
                           opt.imageSize, #opt.originalSize, 
@@ -76,7 +79,9 @@ valDataloader = getLoader(opt.dataset,
                           opt.valBatchSize, 
                           opt.workers,
                           mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5), 
-                          split='val')
+                          split='val',
+                          shuffle=False,
+                          seed=opt.manualSeed)
 
 # get logger
 trainLogger = open('%s/train.log' % opt.exp, 'w')
